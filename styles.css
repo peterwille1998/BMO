@@ -1,0 +1,781 @@
+
+/* ==========================================
+   BMO - FARVER OG GRUNDLÆGGENDE DESIGN
+   ========================================== */
+
+:root {
+    --brown: #493326;
+    --brown-dark: #302218;
+    --yellow: #f2ca4b;
+    --cream: #f6f0e5;
+    --white: #ffffff;
+    --muted: #b7a79b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--brown-dark);
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.65;
+}
+
+h1, h2, h3, p {
+    margin-top: 0;
+}
+
+h1, h2 {
+    line-height: 1.12;
+}
+
+h1, h2, .price-big {
+    font-family: "Playfair Display", serif;
+}
+
+h2 {
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    letter-spacing: -0.04em;
+}
+
+h2 em, h1 em {
+    color: #a9673c;
+}
+
+a {
+    color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible {
+    outline: 3px solid #d98d16;
+    outline-offset: 5px;
+}
+
+.section-wrap {
+    width: min(100% - 48px, 1360px);
+    margin-inline: auto;
+}
+
+.section-kicker,
+.eyebrow {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.section-kicker {
+    margin-bottom: 55px;
+    color: #9a673d;
+}
+
+.section-kicker.light {
+    color: var(--yellow);
+}
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 20px;
+    background: var(--yellow);
+    padding: 12px;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 15px;
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+
+.site-header {
+    background: var(--brown);
+    color: var(--cream);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px max(24px, calc((100vw - 1360px) / 2));
+}
+
+.wordmark {
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.wordmark span {
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.7rem;
+    vertical-align: top;
+}
+
+.site-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.site-header nav a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.site-header nav a:hover {
+    color: var(--yellow);
+}
+
+/* ==========================================
+   HERO
+   ========================================== */
+
+.hero {
+    min-height: 690px;
+    padding-top: 90px;
+    padding-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    position: relative;
+}
+
+.hero-copy {
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: clamp(4.5rem, 8vw, 8.5rem);
+    letter-spacing: -0.07em;
+    margin: 25px 0;
+}
+
+.hero-lead {
+    max-width: 460px;
+    font-size: 1.3rem;
+    line-height: 1.6;
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 30px;
+    padding-bottom: 9px;
+    border-bottom: 2px solid currentColor;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.text-link span {
+    margin-left: 15px;
+}
+
+.hero-bottom {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-top: 1px solid #b8a899;
+    padding-top: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+/* ==========================================
+   BOLLE-ILLUSTRATION
+   ========================================== */
+
+.hero-art {
+    position: relative;
+    min-height: 460px;
+    overflow: hidden;
+}
+
+.sun-disc {
+    position: absolute;
+    width: 390px;
+    height: 390px;
+    border-radius: 50%;
+    background: var(--yellow);
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+}
+
+.bun {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 310px;
+}
+
+.bun-top {
+    height: 165px;
+    top: 155px;
+    background: #c57c37;
+    border: 7px solid var(--brown-dark);
+    border-radius: 170px 170px 28px 28px;
+    z-index: 3;
+}
+
+.bun-bottom {
+    height: 95px;
+    top: 325px;
+    background: #b76d32;
+    border: 7px solid var(--brown-dark);
+    border-radius: 25px 25px 95px 95px;
+    z-index: 1;
+}
+
+.cheese {
+    position: absolute;
+    left: 50%;
+    top: 300px;
+    transform: translateX(-50%) rotate(-5deg);
+    width: 335px;
+    height: 58px;
+    background: #f6d552;
+    border: 6px solid var(--brown-dark);
+    z-index: 2;
+}
+
+.seed {
+    position: absolute;
+    width: 30px;
+    height: 10px;
+    border-radius: 50%;
+    background: #f7d79a;
+    transform: rotate(-25deg);
+}
+
+.seed-one { top: 40px; left: 60px; }
+.seed-two { top: 65px; left: 155px; }
+.seed-three { top: 100px; left: 100px; }
+.seed-four { top: 45px; right: 45px; }
+
+.art-note {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-align: right;
+    transform: rotate(9deg);
+}
+
+/* ==========================================
+   INTRODUKTION
+   ========================================== */
+
+.intro {
+    padding-top: 115px;
+    padding-bottom: 130px;
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 90px;
+}
+
+.intro-grid p {
+    max-width: 550px;
+}
+
+.large-copy {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.question-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 75px;
+}
+
+.question-cards article {
+    padding: 32px;
+    background: #e9dfcf;
+    min-height: 220px;
+}
+
+.question-cards article span {
+    font-weight: 700;
+    color: #9a673d;
+}
+
+.question-cards h3 {
+    font-size: 1.7rem;
+    margin-top: 35px;
+    margin-bottom: 8px;
+}
+
+/* ==========================================
+   DATASEKTION
+   ========================================== */
+
+.data-section {
+    background: var(--brown);
+    color: var(--cream);
+    padding: 110px 0 130px;
+}
+
+.data-heading {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 65px;
+}
+
+.data-heading h2 em {
+    color: var(--yellow);
+}
+
+.data-heading p {
+    max-width: 510px;
+    font-size: 1.2rem;
+}
+
+/* Nøgletal */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 65px;
+}
+
+.stat {
+    border-top: 1px solid #9c8877;
+    padding-top: 25px;
+}
+
+.stat strong {
+    display: block;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.5rem, 4vw, 4.3rem);
+    line-height: 1.2;
+    color: var(--yellow);
+}
+
+.stat span {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+/* Fælles panel-design */
+.chart-panel,
+.pivot-panel,
+.venue-list {
+    background: var(--cream);
+    color: var(--brown-dark);
+    padding: clamp(25px, 4vw, 55px);
+    margin-bottom: 30px;
+}
+
+.panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.panel-heading h3 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.panel-note {
+    font-size: 0.85rem;
+    color: #69574b;
+}
+
+.panel-description {
+    margin-bottom: 35px;
+}
+
+.chart-caption,
+.table-note {
+    font-size: 0.86rem;
+    color: #65574e;
+    margin-top: 30px;
+}
+
+/* ==========================================
+   PRISDIAGRAM
+   ========================================== */
+
+.price-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.price-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    align-items: center;
+    gap: 22px;
+}
+
+.price-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.price-track {
+    background: #e5d9c7;
+    height: 49px;
+    position: relative;
+}
+
+.price-bar {
+    width: var(--bar-width);
+    height: 100%;
+    background: var(--yellow);
+    color: var(--brown-dark);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    animation: grow-bar 0.9s ease-out both;
+    transform-origin: left;
+}
+
+@keyframes grow-bar {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+/* ==========================================
+   INDSIGTSKORT
+   ========================================== */
+
+.insight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.insight-card {
+    border: 1px solid #a38b78;
+    padding: 40px;
+}
+
+.insight-card strong {
+    display: block;
+    font-family: "Playfair Display", serif;
+    font-size: 4rem;
+    line-height: 1.2;
+    color: var(--yellow);
+}
+
+.insight-card h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.insight-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   PIVOTTABEL
+   ========================================== */
+
+.table-scroll {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 620px;
+}
+
+table caption {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+    color: #65574e;
+}
+
+th, td {
+    padding: 17px 12px;
+    border-bottom: 1px solid #d5c8b8;
+}
+
+th {
+    font-size: 0.85rem;
+    background: #e9dfcf;
+}
+
+tbody tr:last-child {
+    font-weight: 700;
+    background: #f0e4cd;
+}
+
+/* ==========================================
+   BAGERIKORT
+   ========================================== */
+
+.filter-control {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-control label {
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.filter-control select {
+    font: inherit;
+    padding: 12px;
+    background: var(--white);
+    color: var(--brown-dark);
+    border: 1px solid #a89886;
+    border-radius: 0;
+}
+
+.venue-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.venue-card {
+    padding: 28px;
+    border: 1px solid #d5c8b8;
+    background: #fffaf1;
+}
+
+.venue-card h4 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+    margin: 12px 0;
+}
+
+.venue-area {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #805331;
+}
+
+.venue-price {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--brown);
+    margin: 12px 0;
+}
+
+.venue-address,
+.venue-source {
+    font-size: 0.85rem;
+    color: #65574e;
+}
+
+.venue-card a {
+    font-weight: 700;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+/* ==========================================
+   METODE
+   ========================================== */
+
+.method {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.method-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 100px;
+}
+
+.method-list {
+    padding-left: 22px;
+}
+
+.method-list li {
+    margin-bottom: 20px;
+}
+
+.callout {
+    background: var(--yellow);
+    padding: clamp(35px, 7vw, 90px);
+}
+
+.callout h2 {
+    margin: 25px 0;
+}
+
+.callout h2 em {
+    color: var(--brown);
+}
+
+.callout p:not(.eyebrow) {
+    max-width: 550px;
+}
+
+.button-link {
+    display: inline-block;
+    background: var(--brown-dark);
+    color: var(--white);
+    padding: 15px 25px;
+    margin-top: 20px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.button-link:hover {
+    background: #704b30;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.site-footer {
+    background: var(--brown-dark);
+    color: var(--cream);
+    padding: 40px max(24px, calc((100vw - 1360px) / 2));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.site-footer p {
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.site-footer a:last-child {
+    font-size: 0.85rem;
+}
+
+/* ==========================================
+   MOBILVENLIGT DESIGN
+   ========================================== */
+
+@media (max-width: 850px) {
+    .hero,
+    .intro-grid,
+    .data-heading,
+    .method-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 60px;
+    }
+
+    .hero-art {
+        min-height: 450px;
+    }
+
+    .question-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        gap: 15px;
+    }
+
+    .venue-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .section-wrap {
+        width: min(100% - 32px, 1360px);
+    }
+
+    .site-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .site-header nav {
+        gap: 18px;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 4.2rem;
+    }
+
+    .hero-art {
+        transform: scale(0.85);
+        transform-origin: center top;
+        margin-bottom: -55px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat {
+        padding-bottom: 20px;
+    }
+
+    .price-row {
+        grid-template-columns: 1fr;
+        gap: 7px;
+    }
+
+    .insight-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .site-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Respekt for brugere med reduceret bevægelse */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .price-bar {
+        animation: none;
+    }
+}
+
